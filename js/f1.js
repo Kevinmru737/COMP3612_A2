@@ -10,7 +10,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function popHomePage() {
+    createHeaderBar();
     let img = document.createElement("img");
     img.setAttribute("src", "images/homepagef1.jpg");
-    $("figure").appendChild(img);
+    let figure = document.createElement("img");
+    $("body").appendChild(figure);
+    figure.appendChild(img);
+}
+
+function createHeaderBar() {
+    let header = document.createElement("header");
+    let logo = document.createElement("img");
+    logo.setAttribute("src", "images/f1logo.svg");
+    $("body").appendChild(header);
+    header.appendChild(logo);
 }
