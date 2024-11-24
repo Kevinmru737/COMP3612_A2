@@ -4,38 +4,145 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../src/styles/output.css" rel="stylesheet">
+  <script src="../src/js/f1.js"></script>
 </head>
 <body>
-    <header class="bg-black text-white px-6 py-4 flex justify-between items-center shadow-lg">
-        <!-- Logo -->
-        <div class="flex items-center space-x-4">
-          <div class="bg-red-600 w-10 h-10 rounded-full flex items-center justify-center">
-            <span class="text-white font-bold text-xl">F1</span>
-          </div>
-          <h1 class="text-2xl font-semibold tracking-wider">F1 Dashboard</h1>
+    <header class="bg-black text-white px-6 py-4 flex space-x-6 flex justify-start items-center shadow-lg">
+      <div id="logo"></div>  
+      
+      <nav class="flex space-x-6 justify-start">
+        <a href="#" id="homeButton" class="text-gray-300 hover:text-red-500 transition duration-300">Home</a>
+        <a href="#" class="text-gray-300 hover:text-red-500 transition duration-300">Races</a>
+      </nav>
+    </header>
+
+    <main id="home" class="flex min-h-screen hidden">
+      <section id="homeLeft" class="flex-[4] bg-gray-900 p-4 text-white">
+      </section>
+      
+      <section id="homeRight" class="flex-[6] flex justify-center items-center bg-gray-800 p-4 text-white">
+      </section>
+    </main>
+
+    <aside id="raceView" class="flex min-h-screen bg-gray-900 hidden">
+      <section id="races" class="flex-[3]">
+      </section>
+      <section class="p-4 flex-[7] bg-gray-500">
+        <p id="detailClickMessage"></p>
+        <div id="raceDetails" class= "hidden min-h-screen bg-gray-900 text-white p-8">
+          <h1 id="eventResults" class="text-3xl font-bold text-center mb-6"></h1>
+            <!-- Two Columns: Race Results and Qualifying Results -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <!--Qualifying Results--> 
+              <div id="qualResults" class="border-4 border-red-700 p-4 rounded-lg bg-gray-800 text-white">
+              </div>
+              <!-- Race Results -->
+              <div id="raceResults" class="border-4 border-red-700 p-4 rounded-lg bg-gray-800 text-white">
+              </div>
+            </div>
         </div>
-      
-        <!-- Navigation Links -->   
-        <nav class="hidden md:flex space-x-6">
-          <a href="#" class="text-gray-300 hover:text-red-500 transition duration-300">Home</a>
-          <a href="#" class="text-gray-300 hover:text-red-500 transition duration-300">Standings</a>
-          <a href="#" class="text-gray-300 hover:text-red-500 transition duration-300">Races</a>
-          <a href="#" class="text-gray-300 hover:text-red-500 transition duration-300">Teams</a>
-        </nav>
-      
-        <!-- Call-to-action -->
-        <button class="bg-red-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-red-700 transition duration-300">
-          Subscribe
-        </button>
-      </header>
-      
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-  <button class="px-6 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold rounded-lg shadow-md hover:from-pink-500 hover:to-indigo-500 transform hover:scale-105 transition-all duration-300 ease-in-out">
-    Cool Button
-  </button>
-  
+      </section>
+    </aside>
   
 </body>
 </html>
+
+<!-- **Style guide**
+        <div class="raceCard flex row justify-start items-center mx-auto bg-gray-800 text-white rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4 bg-gray-850">
+              <h2 class="text-xl font-bold">Bahrain Grand Prix</h2>
+              <p>2021-03-28</p>
+            </div>
+            <div class="p-2">
+              <span class="font-semibold">Bahrain International Circuit</span>,<span class ="italic"> Sakhir, Bahrain</span>
+              <div class="mb-4">
+                <p><span class="font-semibold">Time:</span> 15:00</p>
+              </div>
+            </div>
+            <button class="bg-gray-900 hover:bg-gray-950 text-white font-semibold rounded px-4 h-12 border-2 border-gray-500 ml-4 mr-4">
+              Details
+            </button>
+        </div>
+      -->
+<!--qual ref
+                <h2 class="text-2xl font-bold mb-4">Qualifying Results</h2>
+
+                <div class="overflow-x-auto">
+                  <table class="table-auto w-full border-collapse border border-gray-700 text-sm text-left">
+                    <thead class="bg-gray-700 text-white">
+                      <tr>
+                        <th class="border border-gray-600 px-4 py-2">Position</th>
+                        <th class="border border-gray-600 px-4 py-2">Driver Name</th>
+                        <th class="border border-gray-600 px-4 py-2">Constructor</th>
+                        <th class="border border-gray-600 px-4 py-2">Q1</th>
+                        <th class="border border-gray-600 px-4 py-2">Q2</th>
+                        <th class="border border-gray-600 px-4 py-2">Q3</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="bg-yellow-500 text-black">
+                        <td class="border border-gray-600 px-4 py-2">1</td>
+                        <td class="border border-gray-600 px-4 py-2">Valtteri Bottas</td>
+                        <td class="border border-gray-600 px-4 py-2">Mercedes</td>
+                        <td class="border border-gray-600 px-4 py-2">1:05.423</td>
+                        <td class="border border-gray-600 px-4 py-2">1:04.987</td>
+                        <td class="border border-gray-600 px-4 py-2">1:03.873</td>
+                      </tr>
+                      <tr class="bg-slate-500">
+                        <td class="border border-gray-600 px-4 py-2">2</td>
+                        <td class="border border-gray-600 px-4 py-2">Lewis Hamilton</td>
+                        <td class="border border-gray-600 px-4 py-2">Mercedes</td>
+                        <td class="border border-gray-600 px-4 py-2">1:05.620</td>
+                        <td class="border border-gray-600 px-4 py-2">1:05.125</td>
+                        <td class="border border-gray-600 px-4 py-2">1:04.004</td>
+                      </tr>
+                      <tr class="bg-yellow-800">
+                        <td class="border border-gray-600 px-4 py-2">3</td>
+                        <td class="border border-gray-600 px-4 py-2">Max Verstappen</td>
+                        <td class="border border-gray-600 px-4 py-2">Red Bull</td>
+                        <td class="border border-gray-600 px-4 py-2">1:05.752</td>
+                        <td class="border border-gray-600 px-4 py-2">1:05.286</td>
+                        <td class="border border-gray-600 px-4 py-2">1:04.234</td>
+                      </tr>
+                      Additional rows can be added dynamically
+                    </tbody>
+                  </table>
+                </div>-->
+
+
+                <!--race ref
+                    <h2 class="text-2xl font-bold mb-4">Race Results</h2>
+                    <div class="flex justify-center items-end space-x-4 mb-8">
+
+                      podium
+
+                      <div class="flex flex-col items-center bg-slate-500 text-white rounded-lg shadow-lg p-4 w-40">
+                        <p class="text-xl font-bold text-gray-300">2nd</p>
+                        <p class="text-lg font-semibold">Driver Name</p>
+                        <p class="text-sm text-gray-400">Team Name</p>
+                      </div>
+
+                      <div class="flex flex-col items-center bg-yellow-500 text-black rounded-lg shadow-lg p-6 w-48">
+                        <p class="text-xl font-bold">1st</p>
+                        <p class="text-2xl font-semibold">Valtteri Bottas</p>
+                        <p class="text-sm">Mercedes</p>
+                      </div>
+
+                      <div class="flex flex-col items-center bg-yellow-800 text-white rounded-lg shadow-lg p-4 w-40">
+                        <p class="text-xl font-bold text-gray-300">3rd</p>
+                        <p class="text-lg font-semibold">Driver Name</p>
+                        <p class="text-sm text-gray-400">Team Name</p>
+                      </div>
+                    </div>
+
+                    -->
+
+                    <!-- Non-Podium Positions
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div class="bg-gray-800 rounded-lg shadow-lg p-4">
+                        <p class="text-lg font-semibold">4th - Driver Name</p>
+                        <p class="text-sm text-gray-400">Team: Team Name</p>
+                        <p class="text-sm text-gray-500">Laps: 71</p>
+                      </div>
+                      Add more positions as needed 
+                    </div>-->
