@@ -139,7 +139,6 @@ function getRaces(year) {
         return;
     }
     const url = F1_DOMAIN + RACES + year;
-    console.dir(url);//REMOVE BEFORE SUBMISSION
     fetch(url)
         .then(resp => {
             if(resp.ok) {
@@ -262,7 +261,6 @@ function getQualResults(id, year) {
         return;
     }
     const url1 = F1_DOMAIN + QUAL + year;
-    console.dir(url1);//**REMOVE BEFORE SUBMISSION**
     fetch(url1)
         .then(resp => {
             if(resp.ok) {
@@ -296,7 +294,6 @@ function getResults(id, year) {
         return;
     }
     const url1 = F1_DOMAIN + RESULT + year;
-    console.dir(url1);//**REMOVE BEFORE SUBMISSION**
     fetch(url1)
         .then(resp => {
             if(resp.ok) {
@@ -410,6 +407,12 @@ function popQualDetails(qualData, id, select) {
     }
 }
 
+/*
+*   popQualDetails - creates the result details tables from the corresponding
+*                    Web API data
+*
+*
+*/
 function popResultDetails(resultData, id, select) {
     //constants
     const raceResults = $("#raceResults");
@@ -587,7 +590,6 @@ function addSortEvents(idName, data) {
 *
 */
 function sortPosition(raceType, data) {
-    console.dir(data);
     let toModify = $("#qualPosition");
     if(raceType == "qualResults") {
         toModify = $("#qualPosition");
@@ -709,7 +711,6 @@ function createQualTableHeader(table, select) {
     th6.textContent = "Q3";
     th6.id = "qualQ3";
 
-    console.log(select);
     switch(select) {
         case "Position":
             th1.classList.add(isSelected);
@@ -783,7 +784,6 @@ function createResultTableHeader(table, select) {
     th5.textContent = "Points";
     th5.id = "resultPoints";
 
-    console.log(select);
     switch(select) {
         case "Position":
             th1.classList.add(isSelected);
@@ -922,7 +922,6 @@ function popDriverBox(id, year) {
             //removes every li item except the header, which is not populated via JS
             driverRaceResults.querySelectorAll("li:not(:first-child").forEach(li => li.remove());
 
-            console.log(driverRaceResultsUrl);//REMOVE BEFORE SUBMISSION*************************
             fetch(driverRaceResultsUrl)
                 .then(resp => {
                     if(resp.ok) {
@@ -989,7 +988,6 @@ function popCircuitBox(id, year) {
             }
         })
         .then(circuit => {
-            console.dir(circuit);
             $("#circuit-name").textContent = circuit.name;
             $("#circuit-location").textContent = circuit.location;
             $("#circuit-country").textContent = circuit.country;
