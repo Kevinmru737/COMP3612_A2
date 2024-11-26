@@ -95,7 +95,7 @@ function initHomePage() {
 
     //rightside
     let img = document.createElement("img");
-    img.setAttribute("src", "../src/images/homepagef1.jpg");
+    img.setAttribute("src", "src/images/homepagef1.jpg");
     let figure = document.createElement("figure");
     img.className = "object-cover";
     $("#homeRight").appendChild(figure);
@@ -115,7 +115,7 @@ function popHomePage() {
 
 function popLogo() {
     let logo = document.createElement("img");
-    logo.setAttribute("src", "../src/images/f1logo.svg");
+    logo.setAttribute("src", "src/images/f1logo.svg");
     logo.style.width = "64px";
     logo.style.height = "64px";
 
@@ -962,7 +962,7 @@ function popDriverBox(id, year) {
         $("#driver-picture").className = "flex justify-center items-center mt-4"
         let img = document.createElement("img")
         img.className = "h-24 w-18 flex items-center";
-        img.setAttribute("src", "../src/images/Speedy_Gonzales.png");
+        img.setAttribute("src", "src/images/Speedy_Gonzales.png");
         $("#driver-picture").appendChild(img)
 }
 
@@ -1001,7 +1001,7 @@ function popCircuitBox(id, year) {
             console.error("Error:", error);
         })
 
-    $("#circuit-picture").setAttribute("src", "../src/images/circuit.jpg");
+    $("#circuit-picture").setAttribute("src", "src/images/circuit.jpg");
 
 
 }
@@ -1071,7 +1071,7 @@ function addFavDriver(driver) {
         $("#driver-favorites").appendChild(li);
         //adding a heart icon, doing it here since this only happens once even if the button is pressed a lot
         let img = document.createElement("img");
-        img.setAttribute("src", "../src/images/heart.png");
+        img.setAttribute("src", "src/images/heart.png");
         img.className = "h-4 w-4";
         $("#driver-name").appendChild(img);
         
@@ -1099,7 +1099,7 @@ function addFavConstructor(constructor) {
 
         //adding a heart icon, doing it here since this only happens once even if the button is pressed a lot
         let img = document.createElement("img");
-        img.setAttribute("src", "../src/images/heart.png");
+        img.setAttribute("src", "src/images/heart.png");
         img.className = "h-4 w-4";
         $("#constructor-name").appendChild(img);
         
@@ -1127,7 +1127,7 @@ function addFavCircuit(circuit) {
 
         //adding a heart icon, doing it here since this only happens once even if the button is pressed a lot
         let img = document.createElement("img");
-        img.setAttribute("src", "../src/images/heart.png");
+        img.setAttribute("src", "src/images/heart.png");
         img.className = "h-4 w-4";
         $("#circuit-name").appendChild(img);
         
